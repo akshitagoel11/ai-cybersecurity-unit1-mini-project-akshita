@@ -1,0 +1,193 @@
+{
+ "n": 5000,
+ "n_susp": 900,
+ "susp_pct": 18.0,
+ "missing_pct": {
+  "device_type": 2.9,
+  "login_hour": 3.5,
+  "session_duration_s": 3.0,
+  "bytes_in": 3.1
+ },
+ "by_country": {
+  "RU": 49.9,
+  "UNKNOWN": 49.2,
+  "CN": 47.5,
+  "DE": 11.4,
+  "UK": 11.2,
+  "IN": 10.7,
+  "US": 10.2,
+  "FR": 9.4
+ },
+ "by_protocol": {
+  "RDP": 30.3,
+  "FTP": 30.2,
+  "SSH": 29.8,
+  "HTTPS": 13.7,
+  "DNS": 12.2,
+  "HTTP": 11.9
+ },
+ "mfa_rate": {
+  "0": 30.9,
+  "1": 12.2
+ },
+ "corr_label": {
+  "mfa_enabled": -0.225,
+  "ports_accessed": 0.214,
+  "failed_logins": 0.205,
+  "bytes_out": 0.125,
+  "password_age_days": 0.05,
+  "bytes_in": -0.022,
+  "session_duration_s": 0.005,
+  "login_hour": 0.003
+ },
+ "models": {
+  "Logistic Regression": {
+   "accuracy": 0.8712,
+   "precision": 0.7105,
+   "recall": 0.48,
+   "f1": 0.5729,
+   "train_s": 0.1289,
+   "predict_s": 0.0077,
+   "cm": [
+    [
+     981,
+     44
+    ],
+    [
+     117,
+     108
+    ]
+   ]
+  },
+  "Decision Tree": {
+   "accuracy": 0.8592,
+   "precision": 0.6503,
+   "recall": 0.4711,
+   "f1": 0.5464,
+   "train_s": 0.0323,
+   "predict_s": 0.007,
+   "cm": [
+    [
+     968,
+     57
+    ],
+    [
+     119,
+     106
+    ]
+   ]
+  },
+  "Neural Network (MLP)": {
+   "accuracy": 0.8864,
+   "precision": 0.7243,
+   "recall": 0.5956,
+   "f1": 0.6537,
+   "train_s": 0.3797,
+   "predict_s": 0.006,
+   "cm": [
+    [
+     974,
+     51
+    ],
+    [
+     91,
+     134
+    ]
+   ]
+  }
+ },
+ "test_n": 1250,
+ "test_susp": 225,
+ "threshold": [
+  {
+   "t": 0.1,
+   "fp": 266,
+   "fn": 23,
+   "fpr": 26.0,
+   "recall": 89.8,
+   "precision": 43.2
+  },
+  {
+   "t": 0.2,
+   "fp": 171,
+   "fn": 43,
+   "fpr": 16.7,
+   "recall": 80.9,
+   "precision": 51.6
+  },
+  {
+   "t": 0.3,
+   "fp": 114,
+   "fn": 58,
+   "fpr": 11.1,
+   "recall": 74.2,
+   "precision": 59.4
+  },
+  {
+   "t": 0.4,
+   "fp": 75,
+   "fn": 77,
+   "fpr": 7.3,
+   "recall": 65.8,
+   "precision": 66.4
+  },
+  {
+   "t": 0.5,
+   "fp": 51,
+   "fn": 91,
+   "fpr": 5.0,
+   "recall": 59.6,
+   "precision": 72.4
+  },
+  {
+   "t": 0.6,
+   "fp": 32,
+   "fn": 105,
+   "fpr": 3.1,
+   "recall": 53.3,
+   "precision": 78.9
+  },
+  {
+   "t": 0.7,
+   "fp": 18,
+   "fn": 124,
+   "fpr": 1.8,
+   "recall": 44.9,
+   "precision": 84.9
+  }
+ ],
+ "flipped": 745,
+ "fpr_clean": {
+  "India (IN)": 1.22,
+  "Foreign (US/UK/DE/FR)": 3.44
+ },
+ "fpr_biased": {
+  "India (IN)": 0.24,
+  "Foreign (US/UK/DE/FR)": 63.16
+ },
+ "top_coef": {
+  "source_country_FR": -1.54,
+  "source_country_IN": -1.44,
+  "source_country_US": -1.41,
+  "protocol_HTTP": -1.12,
+  "source_country_DE": -1.07,
+  "protocol_DNS": -1.04,
+  "protocol_HTTPS": -0.97,
+  "source_country_UNKNOWN": 1.75,
+  "source_country_CN": 1.76,
+  "source_country_RU": 1.96
+ },
+ "perm_imp": {
+  "source_country": 0.226,
+  "ports_accessed": 0.106,
+  "mfa_enabled": 0.088,
+  "failed_logins": 0.083,
+  "protocol": 0.082,
+  "password_age_days": 0.017,
+  "login_hour": 0.016,
+  "bytes_out": 0.015,
+  "session_duration_s": 0.005,
+  "bytes_in": 0.001,
+  "device_type": -0.001
+ }
+}
